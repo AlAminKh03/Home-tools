@@ -40,7 +40,7 @@ const Login = () => {
         signInErrorMessage = <p className='text-red-500'>{error?.message || gError.message}</p>
     }
     if (user || gUser) {
-        console.log(user || gUser)
+        navigate(from, { replace: true })
     }
     const onSubmit = data => {
 
