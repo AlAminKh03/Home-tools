@@ -1,22 +1,22 @@
 import React, { useEffect } from 'react';
-import { useSignInWithGoogle, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithGoogle, useSignInWithEmailAndPassword, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import auth from '../../firebase.init';
 
-const Login = () => {
+const Signup = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
-
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useSignInWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
 
     let signInErrorMessage;
     const navigate = useNavigate()
@@ -37,24 +37,24 @@ const Login = () => {
         return <Loading></Loading>
     }
     if (error || gError) {
-        signInErrorMessage = <p className='text-red-500'>{error?.message || gError.message}</p>
+        signInErrorMessage = <p className='text-red-500'>{error?.message || gError?.message || updateError?.message}</p>
     }
     if (user || gUser) {
         console.log(user || gUser)
     }
-    const onSubmit = data => {
+    const onSubmit = async data => {
 
         console.log(data);
-        signInWithEmailAndPassword(data.email, data.password)
-
+        await createUserWithEmailAndPassword(data.email, data.password)
+        await updateProfile({ displayName: data.name });
         // navigate('/appointments')
-
+        console.log("updated")
     }
     return (
         <div className='flex justify-center items-center h-screen'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Login</h2>
+                    <h2 className="text-center text-2xl font-bold">Please Sign Up</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -62,6 +62,24 @@ const Login = () => {
 
 
                         <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+
+                            </label>
+                            <input
+                                type="name"
+                                placeholder="Your Name"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is required'
+                                    }
+                                })} />
+                            <label className="label">
+                                {errors.name?.type === 'required' && <span className="label text alt text-red-500">{errors.name.message}</span>}
+
+                            </label>
                             <label className="label">
                                 <span className="label-text">Email</span>
 
@@ -116,10 +134,10 @@ const Login = () => {
 
 
                         <input className='btn w-full max-w-xs' type="submit"
-                            value='login' />
+                            value='signup' />
                     </form>
 
-                    <p>New to Home Tools? <Link className='text-primary' to='/signup'>Create new account</Link> </p>
+                    <p>Already have an account?? <Link className='text-primary' to='/login'>Login</Link> </p>
 
                     <div className="divider">OR</div>
                     <button
@@ -129,8 +147,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
-
     );
 };
 
-export default Login;
+export default Signup;
