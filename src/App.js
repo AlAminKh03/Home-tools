@@ -10,6 +10,10 @@ import Footer from './pages/Shared/Footer';
 import Navbar from './pages/Shared/Navbar';
 import RequireAuth from './pages/Login/RequireAuth';
 import ProductDetails from './pages/Home/ProductDetails';
+import DashBoard from './pages/DashBoard/DashBoard';
+import MyProfile from './pages/DashBoard/MyProfile';
+import myOrders from './pages/DashBoard/myOrders';
+import AddReview from './pages/DashBoard/AddReview';
 
 function App() {
   return (
@@ -21,6 +25,14 @@ function App() {
         <Route path='/product/:productId' element={<RequireAuth>
           <ProductDetails></ProductDetails>
         </RequireAuth>}></Route>
+        <Route path='/dashboard' element={<RequireAuth>
+          <DashBoard></DashBoard>
+        </RequireAuth>}>
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
+
+          <Route path='review' element={<AddReview></AddReview>}></Route>
+        </Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
