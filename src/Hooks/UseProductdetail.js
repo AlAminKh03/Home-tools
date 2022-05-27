@@ -7,7 +7,7 @@ const UseProductdetail = (productId) => {
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
-    })
+    }, [])
     return [product, setProduct]
 };
 
