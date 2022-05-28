@@ -1,19 +1,39 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+
 
 const Orders = () => {
     const [orders, setOrders] = useState([])
     const [user] = useAuthState(auth)
+    const navigate = useNavigate()
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/orders?email=${user.email}`)
-                .then(res => res.json())
+            console.log(user)
+            const email = user.email
+            console.log(email)
+            fetch(`http://localhost:5000/orders/${email}`, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => {
+                    console.log('res', res)
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth)
+                        localStorage.removeItem('accessToken')
+                        navigate('/')
+                    }
+                    return res.json()
+                })
                 .then(data => {
                     setOrders(data)
                 })
         }
-    }, [user])
+    }, [user, navigate])
     return (
         <div class="overflow-x-auto">
             <table class="table w-full">
@@ -29,11 +49,11 @@ const Orders = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {orders.map(a => <tr
+                    {orders?.map((a, index) => <tr
                         key={a._id}>
-                        <th>$</th>
+                        <th>{index + 1}</th>
                         <td>{a.name}</td>
-                        <td></td>
+                        <td>{a.totalPrice}</td>
                         <td>{a.quantity}</td>
                     </tr>)}
 

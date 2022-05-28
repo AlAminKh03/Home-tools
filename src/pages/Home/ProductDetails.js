@@ -15,19 +15,20 @@ const ProductDetails = () => {
     const [user, loading, error] = useAuthState(auth);
     const [product, setProduct] = UseProductdetail(productId)
 
+
     if (loading) {
         return <Loading></Loading>
     }
     const onSubmit = (data) => {
-        // event.preventDefault();
-        // console.log(data)
+        const quantity = parseInt(data.quantity)
 
         const orders = {
             name: user.displayName,
             email: user.email,
-            quantity: data.quantity,
+            quantity: quantity,
             number: data.phoneNumber,
-            location: data.location
+            location: data.location,
+            totalPrice: quantity * product.price
         }
 
         fetch('http://localhost:5000/orders', {
@@ -97,20 +98,32 @@ const ProductDetails = () => {
                     </label>
                     <input type="number"
                         className="input input-bordered w-full max-w-xs"
+                        defaultValue={product.minimumOrder}
                         {...register("quantity",
 
                             {
                                 required: {
                                     value: true,
-                                    message: 'quantity is required'
                                 },
-                                minLength: {
-                                    value: 3,
-                                    message: 'minimum order quantity 100'
+                                min: {
+                                    value: `${product.minimumOrder}`,
+                                },
+                                max: {
+                                    value: `${product.available}`,
                                 }
                             })} />
 
                 </div>
+                {errors.quantity?.type === "min" && (
+                    <strong className="text-red-500 font-bold">
+                        inter minimum Amount
+                    </strong>
+                )}
+                {errors.quantity?.type === "max" && (
+                    <strong className="text-red-500 font-bold">
+                        reduce your quantity
+                    </strong>
+                )}
 
                 {/* phone number  */}
 

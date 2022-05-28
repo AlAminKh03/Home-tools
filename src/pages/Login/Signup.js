@@ -5,6 +5,7 @@ import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import auth from '../../firebase.init';
+import useToken from '../../Hooks/useToken';
 
 const Signup = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -23,7 +24,8 @@ const Signup = () => {
     const location = useLocation()
     let from = location.state?.from?.pathname || '/'
 
-    // const [token] = useToken(user || gUser)
+    const [token] = useToken(user || gUser)
+
     // console.log('this is user', user)
     // useEffect(() => {
     //     if (token) {
@@ -39,8 +41,8 @@ const Signup = () => {
     if (error || gError) {
         signInErrorMessage = <p className='text-red-500'>{error?.message || gError?.message || updateError?.message}</p>
     }
-    if (user || gUser) {
-        console.log(user || gUser)
+    if (token) {
+        navigate('/home')
     }
     const onSubmit = async data => {
 
