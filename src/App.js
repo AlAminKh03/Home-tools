@@ -17,6 +17,10 @@ import Orders from './pages/DashBoard/Orders';
 import { Toaster } from 'react-hot-toast';
 import NotFound from './pages/Shared/NotFound';
 import Protfolio from './pages/ProtFolio/Protfolio';
+import MakeAdmin from './pages/DashBoard/MakeAdmin';
+import ManageProduct from './pages/DashBoard/ManageProduct';
+import ManageOrder from './pages/DashBoard/ManageOrder';
+import AddProduct from './pages/DashBoard/AddProduct';
 
 function App() {
   return (
@@ -35,6 +39,10 @@ function App() {
           <Route path='orders' element={<Orders></Orders>}></Route>
 
           <Route path='review' element={<AddReview></AddReview>}></Route>
+          <Route path='makeadmin' element={<MakeAdmin></MakeAdmin>}></Route>
+          <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
+          <Route path='manageorder' element={<ManageOrder></ManageOrder>}></Route>
+          <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/protfolio' element={<Protfolio></Protfolio>}></Route>
