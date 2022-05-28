@@ -1,10 +1,12 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import UseProductdetail from '../../Hooks/UseProductdetail';
 import Loading from '../Shared/Loading';
+
 
 const ProductDetails = () => {
     const { productId } = useParams()
@@ -15,6 +17,32 @@ const ProductDetails = () => {
 
     if (loading) {
         return <Loading></Loading>
+    }
+    const onSubmit = (data) => {
+        // event.preventDefault();
+        // console.log(data)
+
+        const orders = {
+            name: user.displayName,
+            email: user.email,
+            quantity: data.quantity,
+            number: data.phoneNumber,
+            location: data.location
+        }
+
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orders)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                // toast.success('booked, please go to dashboard to purchase')
+                alert('booked')
+            })
     }
 
     return (
@@ -35,7 +63,10 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
-            <form>
+
+
+
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Name</span>
@@ -43,7 +74,7 @@ const ProductDetails = () => {
                     </label>
                     <input type="name" value={user.displayName}
                         className="input input-bordered w-full max-w-xs"
-                    // {...register("name")} 
+
                     />
                 </div>
                 <div className="form-control w-full max-w-xs">
@@ -53,9 +84,11 @@ const ProductDetails = () => {
                     </label>
                     <input type="name" value={user.email}
                         className="input input-bordered w-full max-w-xs"
-                    // {...register("name")} 
                     />
 
+
+
+                    {/* product quantity  */}
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
@@ -64,7 +97,7 @@ const ProductDetails = () => {
                     </label>
                     <input type="number"
                         className="input input-bordered w-full max-w-xs"
-                        {...register("number",
+                        {...register("quantity",
 
                             {
                                 required: {
@@ -78,20 +111,23 @@ const ProductDetails = () => {
                             })} />
 
                 </div>
+
+                {/* phone number  */}
+
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Phone Number</span>
                     </label>
-                    <input type='number' className="input input-bordered w-full max-w-xs" {...register("phone number", { required: true })} />
+                    <input type='tel' className="input input-bordered w-full max-w-xs"   {...register("phoneNumber", { required: true })} />
                 </div>
 
-
+                {/* location  */}
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Location</span>
 
                     </label>
-                    <input type='text' className="input input-bordered w-full max-w-xs" {...register("phone number", { required: true })} />
+                    <input type='text' className="input input-bordered w-full max-w-xs" {...register("location", { required: true })} />
                 </div>
 
                 <div className='form-control w-full max-w-xs mt-5'> <input className='btn w-50 max-w-xs' type="submit"
