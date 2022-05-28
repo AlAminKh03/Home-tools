@@ -30,8 +30,10 @@ const ManageOrder = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.deleteCount > 0) {
+                if (data.deletedCount > 0) {
                     toast.success('Order deleted')
+                    const newOrders = orders.filter(order => order._id !== id)
+                    setOrders(newOrders)
                 }
             })
 
