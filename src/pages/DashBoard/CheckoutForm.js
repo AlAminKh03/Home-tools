@@ -81,7 +81,7 @@ const CheckoutForm = ({ products }) => {
                 appointment: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://nameless-bayou-10593.herokuapp.com/.com/booking/${_id}`, {
+            fetch(`https://nameless-bayou-10593.herokuapp.com/booking/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
