@@ -24,8 +24,8 @@ const DashBoard = () => {
                     <li><Link to="/dashboard">Profile</Link></li>
 
                     {admin ? <>
-                        <li><Link to="/dashboard/makeadmin">make admin</Link></li>
-                        <li><Link to="/dashboard/manageorder">Manage All Orders</Link></li>
+                        <li><Link to="/dashboard/makeadmin">Make admin</Link></li>
+                        <li><Link to="/dashboard/manageorder">Manage Orders</Link></li>
                         <li><Link to="/dashboard/addproduct">Add Product</Link></li>
                         <li><Link to="/dashboard/manageProduct">Manage Product</Link></li>
 

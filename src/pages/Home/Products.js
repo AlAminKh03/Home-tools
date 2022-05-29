@@ -1,18 +1,12 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import useProducts from '../../Hooks/useProducts';
 import Product from './Product';
 
 const Products = () => {
-    const [products, setProducts] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:5000/products')
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                setProducts(data)
-            })
-    }, [])
+    const [products, setProducts] = useProducts()
+
     // const { data: products, isLoading } = useQuery('products', () => {
     //     fetch('http://localhost:5000/products')
     //         .then(res => res.json())
@@ -21,6 +15,7 @@ const Products = () => {
     // if (isLoading) {
     //     return <Loading></Loading>
     // }
+
     return (
         <div>
             <h1 className='text-3xl font-bold'>Our Tools</h1>

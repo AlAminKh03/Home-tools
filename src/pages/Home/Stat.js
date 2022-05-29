@@ -9,7 +9,7 @@ const Stat = () => {
         <div>
             <h1 className='text-3xl text-primary m-4 font-bold'>Our Annual Summary</h1>
             <h3 className='text-2xl text-secondary mb-4 '>We run business on your trust</h3>
-            <div className="stats shadow">
+            <div className="stats shadow lg:grid-cols-1 grid-cols-3">
 
                 <div className="stat">
                     <div className="stat-figure text-primary">

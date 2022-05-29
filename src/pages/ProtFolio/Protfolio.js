@@ -1,18 +1,23 @@
 import React from 'react';
-
+import me from '../../assests/banner/20210211_1331544 (2).jpg'
 const Protfolio = () => {
 
     return (
-        <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card w-96 bg-base-100 shadow-xl flex justify-center">
             <figure class="px-10 pt-10">
-                <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" class="rounded-xl" />
+                <img src={me} alt='Al Amin Khan ' class="rounded-xl" />
             </figure>
             <div class="card-body items-center text-center">
                 <h2 class="card-title">Al Amin Khan</h2>
                 <p>Front-end developer</p>
                 <p>khanal6203@gmail.com</p>
-                <p>Edictaion:<span>Bsc in ECE at Ahsanullah Institute of information and communication technology</span></p>
-                <p>Theres three project that i've done in a while:</p>
+                <p className='text-xl font-bold'>Edictaion:</p>
+                <span>Bsc in ECE at Ahsanullah Institute of information and communication technology</span>
+
+                <p className='text-xl font-bold'>Skills on:</p>
+                <span>Html , CSS , Java Script, React, Express JS, Node JS ,Mongodb</span>
+                <span></span>
+                <p className='text-xl font-bold'>Theres three project that i've done in a while:</p>
                 <ul>
                     <li> https://sports-gear-11.web.app/</li>
                     <li>  https://sishir-bindu-travel.web.app/</li>

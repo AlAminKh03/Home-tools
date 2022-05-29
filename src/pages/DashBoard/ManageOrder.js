@@ -18,7 +18,7 @@ const ManageOrder = () => {
             })
             .then(data => {
                 setOrders(data)
-                console.log(data)
+                // console.log(data)
             })
     }
         , [])
@@ -57,7 +57,7 @@ const ManageOrder = () => {
                         <th>{index + 1}</th>
                         <td>{a.name}</td>
                         <td>{a.totalPrice}</td>
-                        <td><button onClick={() => handleDelete(a._id)}>delete</button></td>
+                        <td><button className="btn btn-xs btn-error" onClick={() => handleDelete(a._id)}>delete</button></td>
                     </tr>)}
 
                 </tbody>

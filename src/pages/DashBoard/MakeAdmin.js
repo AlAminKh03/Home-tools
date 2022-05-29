@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
 
 const MakeAdmin = () => {
     const [users, setUsers] = useState([])
@@ -8,7 +11,17 @@ const MakeAdmin = () => {
             .then(data => {
                 setUsers(data)
             })
-    })
+    }, [users])
+
+
+    // const { data: users, isLoading } = useQuery('users', () => {
+    //     fetch('http://localhost:5000/user')
+    //         .then(res => res.json())
+    // })
+    // console.log(users)
+    // if (isLoading) {
+    //     return <Loading></Loading>
+    // }
     const makeAdmin = email => {
         console.log(email)
         fetch(`http://localhost:5000/user/makeadmin/${email}`, {
@@ -20,6 +33,7 @@ const MakeAdmin = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                toast.success('successfully made an admin')
             })
     }
     return (
@@ -40,7 +54,7 @@ const MakeAdmin = () => {
                         <th>{index + 1}</th>
                         <td>{user.email}</td>
                         <td>
-                            <button onClick={() => makeAdmin(user.email)}>Make admin</button>
+                            <button className='btn btn-xs' onClick={() => makeAdmin(user.email)}>Make admin</button>
                         </td>
 
                     </tr>)}
