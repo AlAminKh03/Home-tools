@@ -6,7 +6,7 @@ const useAdmin = (user) => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/user/admin/${user.email}`)
+            fetch(`https://nameless-bayou-10593.herokuapp.com/user/admin/${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data)

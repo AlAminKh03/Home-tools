@@ -32,7 +32,7 @@ const ProductDetails = () => {
             totalPrice: quantity * product.price
         }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://nameless-bayou-10593.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -18,7 +18,7 @@ const AddReview = () => {
             review: review,
             img: 'https://api.lorem.space/image/face?hash=3174'
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://nameless-bayou-10593.herokuapp.com/reviews', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

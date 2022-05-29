@@ -8,7 +8,7 @@ const MakeAdmin = () => {
 
     const [users, setUsers] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/user')
+        fetch('https://nameless-bayou-10593.herokuapp.com/user')
             .then(res => res.json())
             .then(data => {
                 setUsers(data)
@@ -17,7 +17,7 @@ const MakeAdmin = () => {
 
 
     // const { data: users, isLoading } = useQuery('users', () => {
-    //     fetch('http://localhost:5000/user')
+    //     fetch('https://nameless-bayou-10593.herokuapp.com/user')
     //         .then(res => res.json())
     // })
     // console.log(users)
@@ -27,7 +27,7 @@ const MakeAdmin = () => {
     const makeAdmin = email => {
 
         console.log(email)
-        fetch(`http://localhost:5000/user/makeadmin/${email}`, {
+        fetch(`https://nameless-bayou-10593.herokuapp.com/user/makeadmin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

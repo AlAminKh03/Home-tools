@@ -6,7 +6,7 @@ const ManageOrder = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/orders`, {
+        fetch(`https://nameless-bayou-10593.herokuapp.com/orders`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json'
@@ -23,7 +23,7 @@ const ManageOrder = () => {
     }
         , [])
     const handleDelete = id => {
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://nameless-bayou-10593.herokuapp.com/orders/${id}`, {
             method: 'DELETE',
 
         })

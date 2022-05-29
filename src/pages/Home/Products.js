@@ -8,7 +8,7 @@ const Products = () => {
     const [products] = useProducts()
 
     // const { data: products, isLoading } = useQuery('products', () => {
-    //     fetch('http://localhost:5000/products')
+    //     fetch('https://nameless-bayou-10593.herokuapp.com/products')
     //         .then(res => res.json())
     // })
 

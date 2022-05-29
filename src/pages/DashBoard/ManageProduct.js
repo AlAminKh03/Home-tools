@@ -7,7 +7,7 @@ const ManageProduct = () => {
     const handleDeleteButton = id => {
         const proceed = window.confirm("Are you sure want to delete??");
         if (proceed) {
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `https://nameless-bayou-10593.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: "DELETE",
             })
