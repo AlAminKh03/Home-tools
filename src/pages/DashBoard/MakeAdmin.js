@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useQuery } from 'react-query';
+import useAdmin from '../../Hooks/useAdmin';
 import Loading from '../Shared/Loading';
 
 const MakeAdmin = () => {
+
     const [users, setUsers] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/user')
@@ -23,6 +25,7 @@ const MakeAdmin = () => {
     //     return <Loading></Loading>
     // }
     const makeAdmin = email => {
+
         console.log(email)
         fetch(`http://localhost:5000/user/makeadmin/${email}`, {
             method: 'PUT',
@@ -54,7 +57,8 @@ const MakeAdmin = () => {
                         <th>{index + 1}</th>
                         <td>{user.email}</td>
                         <td>
-                            <button className='btn btn-xs' onClick={() => makeAdmin(user.email)}>Make admin</button>
+
+                            <button className='btn btn-xs' onClick={() => makeAdmin(user.email)}>Make Admin</button>
                         </td>
 
                     </tr>)}

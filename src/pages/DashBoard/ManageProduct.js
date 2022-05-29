@@ -40,6 +40,7 @@ const ManageProduct = () => {
                         key={product._id}>
                         <th>{index + 1}</th>
                         <td>{product.name}</td>
+                        <td>{product.quantity}</td>
                         <button
                             onClick={() => handleDeleteButton(product._id)}
                             className="btn btn-xs btn-error"

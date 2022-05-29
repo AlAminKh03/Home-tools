@@ -59,7 +59,7 @@ const ProductDetails = () => {
                         </h2>
                         <p>{product.description}</p>
                         <div className="card-actions justify-end">
-                            <div className="badge badge-outline">Price:{product.price}</div>
+                            <div className="badge badge-outline">Price:${product.price}</div>
                             <div className="badge badge-outline">Available:{product.available}</div>
                         </div>
                     </div>
