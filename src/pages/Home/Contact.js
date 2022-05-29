@@ -8,7 +8,7 @@ const Contact = () => {
                     <h1 className="text-5xl font-bold" > Feedback</h1 >
                     <p className="py-6" > Let us know the experience you had in there.We always appriciate your valuable comments and that will increase our community more stronger</p >
                 </div >
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ml-24" >
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ml-8" >
                     <div className="card-body" >
                         <div className="form-control" >
                             <label className="label" >

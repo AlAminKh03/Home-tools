@@ -21,6 +21,7 @@ import MakeAdmin from './pages/DashBoard/MakeAdmin';
 import ManageProduct from './pages/DashBoard/ManageProduct';
 import ManageOrder from './pages/DashBoard/ManageOrder';
 import AddProduct from './pages/DashBoard/AddProduct';
+import Payment from './pages/DashBoard/Payment';
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
         <Route path='/product/:productId' element={<RequireAuth>
           <ProductDetails></ProductDetails>
         </RequireAuth>}></Route>
+
+
         <Route path='/dashboard' element={<RequireAuth>
           <DashBoard></DashBoard>
         </RequireAuth>}>
@@ -43,7 +46,11 @@ function App() {
           <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
           <Route path='manageorder' element={<ManageOrder></ManageOrder>}></Route>
           <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
         </Route>
+
+
+
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/protfolio' element={<Protfolio></Protfolio>}></Route>
         <Route path='/about' element={<About></About>}></Route>

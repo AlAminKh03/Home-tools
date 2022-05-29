@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 
@@ -35,8 +35,8 @@ const Orders = () => {
         }
     }, [user, navigate])
     return (
-        <div class="overflow-x-auto">
-            <table class="table w-full">
+        <div className="overflow-x-auto">
+            <table className="table w-full">
 
                 <thead>
                     <tr>
@@ -45,16 +45,21 @@ const Orders = () => {
                         <th>Price</th>
                         <th>Ordered(piece)</th>
                         <th>Transaction ID</th>
-                        <th>Pay</th>
+                        <th>Payment</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {orders?.map((a, index) => <tr
-                        key={a._id}>
+                    {orders?.map((order, index) => <tr
+                        key={order._id}>
                         <th>{index + 1}</th>
-                        <td>{a.name}</td>
-                        <td>{a.totalPrice}</td>
-                        <td>{a.quantity}</td>
+                        <td>{order.name}</td>
+                        <td>{order.totalPrice}</td>
+                        <td>{order.quantity}</td>
+                        <td></td>
+                        <td>{(order.totalPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>}
+                            {(order.totalPrice && order.paid) && <span className='text-success'>paid</span>}
+
+                        </td>
                     </tr>)}
 
                 </tbody>

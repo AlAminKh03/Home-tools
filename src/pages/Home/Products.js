@@ -5,7 +5,7 @@ import useProducts from '../../Hooks/useProducts';
 import Product from './Product';
 
 const Products = () => {
-    const [products, setProducts] = useProducts()
+    const [products] = useProducts()
 
     // const { data: products, isLoading } = useQuery('products', () => {
     //     fetch('http://localhost:5000/products')

@@ -1,3 +1,4 @@
+import { Toast } from 'bootstrap';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
@@ -41,25 +42,25 @@ const ProductDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                // toast.success('booked, please go to dashboard to purchase')
-                alert('booked')
+                toast.success('booked, please go to dashboard to purchase')
+                // alert('booked')
             })
     }
 
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 mb-10'>
             <div className='items-center mt-16'>
-                <div class="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-base-100 shadow-xl">
                     <figure><img className='w-56' src={product.img} alt="Shoes" /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">
+                    <div className="card-body">
+                        <h2 className="card-title">
                             {product.name}
 
                         </h2>
                         <p>{product.description}</p>
-                        <div class="card-actions justify-end">
-                            <div class="badge badge-outline">Price:{product.price}</div>
-                            <div class="badge badge-outline">Available:{product.available}</div>
+                        <div className="card-actions justify-end">
+                            <div className="badge badge-outline">Price:{product.price}</div>
+                            <div className="badge badge-outline">Available:{product.available}</div>
                         </div>
                     </div>
                 </div>

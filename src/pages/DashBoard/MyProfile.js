@@ -42,34 +42,22 @@ const MyProfile = () => {
 
 
     return (
-        <div class="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-96 bg-base-100 shadow-xl">
 
 
             <form onSubmit={handleForm}>
-                <div class="card-body items-center text-center">
-                    <div class="avatar">
-                        <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <div className="card-body items-center text-center">
+                    <div className="avatar">
+                        <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src={user.photoURL} alt="" />
                         </div>
                     </div>
-                    <h2 class="card-title">{user.displayName}</h2>
+                    <h2 className="card-title">{user.displayName}</h2>
                     <p>{user.email}</p>
-                    <label>Phone:
 
-                    </label>
-                    <input name="number" className='border-2 border-black' type="number" />
-                    <label>Facebook:
-
-                    </label>
-                    <input name="facebook" className='border-2 border-black' type="text" />
-                    <label>Github:
-
-                    </label>
-                    <input name="github" className='border-2 border-black' type="text" />
-                    <div class="card-actions">
-                        <button class="btn btn-primary">update</button>
-                    </div>
+                    <button className="btn btn-primary">update</button>
                 </div>
+
             </form>
         </div>
     );

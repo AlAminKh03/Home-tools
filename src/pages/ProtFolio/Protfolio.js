@@ -3,15 +3,15 @@ import me from '../../assests/banner/20210211_1331544 (2).jpg'
 const Protfolio = () => {
 
     return (
-        <div class="card w-96 bg-base-100 shadow-xl flex justify-center">
-            <figure class="px-10 pt-10">
-                <img src={me} alt='Al Amin Khan ' class="rounded-xl" />
+        <div className="card w-96 bg-base-100 shadow-xl flex justify-center">
+            <figure className="px-10 pt-10">
+                <img src={me} alt='Al Amin Khan ' className="rounded-xl" />
             </figure>
-            <div class="card-body items-center text-center">
-                <h2 class="card-title">Al Amin Khan</h2>
+            <div className="card-body items-center text-center">
+                <h2 className="card-title">Al Amin Khan</h2>
                 <p>Front-end developer</p>
                 <p>khanal6203@gmail.com</p>
-                <p className='text-xl font-bold'>Edictaion:</p>
+                <p className='text-xl font-bold'>Eductaion:</p>
                 <span>Bsc in ECE at Ahsanullah Institute of information and communication technology</span>
 
                 <p className='text-xl font-bold'>Skills on:</p>
