@@ -22,6 +22,7 @@ import ManageProduct from './pages/DashBoard/ManageProduct';
 import ManageOrder from './pages/DashBoard/ManageOrder';
 import AddProduct from './pages/DashBoard/AddProduct';
 import Payment from './pages/DashBoard/Payment';
+import RequireAdmin from './pages/Login/RequireAdmin';
 
 function App() {
   return (
@@ -42,10 +43,10 @@ function App() {
           <Route path='orders' element={<Orders></Orders>}></Route>
 
           <Route path='review' element={<AddReview></AddReview>}></Route>
-          <Route path='makeadmin' element={<MakeAdmin></MakeAdmin>}></Route>
-          <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
-          <Route path='manageorder' element={<ManageOrder></ManageOrder>}></Route>
-          <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
+          <Route path='makeadmin' element={<RequireAdmin><MakeAdmin></MakeAdmin></RequireAdmin>}></Route>
+          <Route path='manageProduct' element={<RequireAdmin><ManageProduct></ManageProduct></RequireAdmin>}></Route>
+          <Route path='manageorder' element={<RequireAdmin><ManageOrder></ManageOrder></RequireAdmin>}></Route>
+          <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
         </Route>
 
