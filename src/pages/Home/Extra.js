@@ -2,11 +2,17 @@ import React from "react";
 import kitchen from "../../assests/banner/kitchen.jpg";
 const Extra = () => {
   return (
-    <div className="hero min-h-screen bg-base-200 ">
-      <div className="hero-content flex-col lg:flex-row-reverse mx-[80px]">
-        <img src={kitchen} alt="" className="max-w-sm rounded-lg shadow-2xl" />
+    <div className="flex items-center justify-center min-h-screen bg-base-100 ">
+      <div className="flex gap-20 flex-col lg:flex-row-reverse mx-[80px] items-center justify-center">
+        <div className="mx-[20px]">
+          <img
+            src={kitchen}
+            alt=""
+            className="max-w-sm  rounded-lg shadow-2xl"
+          />
+        </div>
         <div>
-          <h1 className="text-5xl font-bold">
+          <h1 className="lg:text-4xl text-xl font-bold">
             Chance to customise your kitchen
           </h1>
           <p className="py-6">

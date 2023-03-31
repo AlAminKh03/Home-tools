@@ -48,8 +48,8 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 mb-10">
-      <div className="items-center mt-16">
+    <div className="grid grid-cols-1 lg:grid-cols-2 mb-10 mt-16 lg:mt-28">
+      <div className="items-center ">
         <div className="card w-96 bg-base-100 shadow-xl">
           <figure>
             <img className="w-56" src={product.img} alt="Shoes" />

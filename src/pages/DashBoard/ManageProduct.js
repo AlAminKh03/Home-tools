@@ -22,7 +22,7 @@ const ManageProduct = () => {
     }
   };
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto mt-20">
       <table className="table w-full">
         <thead>
           <tr>

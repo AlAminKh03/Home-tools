@@ -29,7 +29,7 @@ const Payment = () => {
 
   return (
     <div>
-      <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12">
+      <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12 mt-20">
         <div class="card-body">
           <h2 class="card-title">Please Pay for {products.name}</h2>
           <p>Please pay: ${products.price}</p>
