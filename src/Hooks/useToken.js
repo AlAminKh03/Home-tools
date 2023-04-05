@@ -6,7 +6,7 @@ const useToken = (user) => {
     const email = user?.user?.email;
     const currentUser = { email: email };
     if (email) {
-      fetch(`https://home-tools-server.onrender.com/user/${email}`, {
+      fetch(`https://home-tools-server-qeek.vercel.app/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

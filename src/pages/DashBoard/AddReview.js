@@ -18,7 +18,7 @@ const AddReview = () => {
       review: review,
       img: "https://api.lorem.space/image/face?hash=3174",
     };
-    fetch("https://home-tools-server.onrender.com/reviews", {
+    fetch("https://home-tools-server-qeek.vercel.app/reviews", {
       method: "PUT",
       headers: {
         "content-type": "application/json",

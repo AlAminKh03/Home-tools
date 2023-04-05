@@ -5,7 +5,7 @@ const ManageOrder = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`https://home-tools-server.onrender.com/orders`, {
+    fetch(`https://home-tools-server-qeek.vercel.app/orders`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -20,7 +20,7 @@ const ManageOrder = () => {
       });
   }, []);
   const handleDelete = (id) => {
-    fetch(`https://home-tools-server.onrender.com/orders/${id}`, {
+    fetch(`https://home-tools-server-qeek.vercel.app/orders/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

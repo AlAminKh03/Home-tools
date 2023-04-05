@@ -7,7 +7,7 @@ const ManageProduct = () => {
   const handleDeleteButton = (id) => {
     const proceed = window.confirm("Are you sure want to delete??");
     if (proceed) {
-      const url = `https://home-tools-server.onrender.com/products/${id}`;
+      const url = `https://home-tools-server-qeek.vercel.app/products/${id}`;
       fetch(url, {
         method: "DELETE",
       })

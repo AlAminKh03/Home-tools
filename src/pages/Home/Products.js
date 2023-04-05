@@ -8,7 +8,7 @@ const Products = () => {
   const [products] = useProducts();
 
   // const { data: products, isLoading } = useQuery('products', () => {
-  //     fetch('https://home-tools-server.onrender.com/products')
+  //     fetch('https://home-tools-server-qeek.vercel.app/products')
   //         .then(res => res.json())
   // })
 

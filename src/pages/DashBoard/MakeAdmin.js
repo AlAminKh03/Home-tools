@@ -7,7 +7,7 @@ import Loading from "../Shared/Loading";
 const MakeAdmin = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("https://home-tools-server.onrender.com/user")
+    fetch("https://home-tools-server-qeek.vercel.app/user")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -15,7 +15,7 @@ const MakeAdmin = () => {
   }, [users]);
 
   // const { data: users, isLoading } = useQuery('users', () => {
-  //     fetch('https://home-tools-server.onrender.com/user')
+  //     fetch('https://home-tools-server-qeek.vercel.app/user')
   //         .then(res => res.json())
   // })
   // console.log(users)
@@ -24,7 +24,7 @@ const MakeAdmin = () => {
   // }
   const makeAdmin = (email) => {
     console.log(email);
-    fetch(`https://home-tools-server.onrender.com/user/makeadmin/${email}`, {
+    fetch(`https://home-tools-server-qeek.vercel.app/user/makeadmin/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

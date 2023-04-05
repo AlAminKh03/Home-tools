@@ -13,7 +13,7 @@ const CheckoutForm = ({ products }) => {
   const { price, name, email, _id } = products;
 
   useEffect(() => {
-    fetch("https://home-tools-server.onrender.com/create-payment-intent", {
+    fetch("https://home-tools-server-qeek.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -76,7 +76,7 @@ const CheckoutForm = ({ products }) => {
         appointment: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`https://home-tools-server.onrender.com/booking/${_id}`, {
+      fetch(`https://home-tools-server-qeek.vercel.app/booking/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

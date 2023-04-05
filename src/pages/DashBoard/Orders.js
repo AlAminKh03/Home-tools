@@ -13,7 +13,7 @@ const Orders = () => {
       console.log(user);
       const email = user.email;
       console.log(email);
-      fetch(`https://home-tools-server.onrender.com/orders/${email}`, {
+      fetch(`https://home-tools-server-qeek.vercel.app/orders/${email}`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,

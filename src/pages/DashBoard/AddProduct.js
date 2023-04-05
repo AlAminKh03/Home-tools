@@ -11,7 +11,7 @@ const AddProduct = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    const url = "https://home-tools-server.onrender.com/products";
+    const url = "https://home-tools-server-qeek.vercel.app/products";
     fetch(url, {
       method: "POST",
       headers: {

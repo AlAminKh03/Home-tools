@@ -32,7 +32,7 @@ const ProductDetails = () => {
       totalPrice: quantity * product.price,
     };
 
-    fetch("https://home-tools-server.onrender.com/orders", {
+    fetch("https://home-tools-server-qeek.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

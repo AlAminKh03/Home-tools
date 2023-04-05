@@ -6,7 +6,9 @@ const useAdmin = (user) => {
 
   useEffect(() => {
     if (user) {
-      fetch(`https://home-tools-server.onrender.com/user/admin/${user.email}`)
+      fetch(
+        `https://home-tools-server-qeek.vercel.app/user/admin/${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           // console.log(data)
